@@ -9,7 +9,7 @@
                 "-std=c++26",
                 "-g",
                 "main.cpp",
-                "skiplist.cpp",
+                "./src/*.cpp",
                 "-o",
                 "lsm_runner"
             ],

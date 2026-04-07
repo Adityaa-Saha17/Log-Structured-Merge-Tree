@@ -1,1 +1,5 @@
 /lsm_runner.dSYM
+main.cpp
+lsm_runnner
+wal.log
+.vscode

@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <vector>
-// #include <cstdint>
 
 enum class RecordType  : uint8_t {
     PUT = 0,
