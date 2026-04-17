@@ -19,7 +19,7 @@ class WAL{
     std::ofstream file_;
     std::string path_;
 public:
-    explicit WAL(std::string& path);
+    explicit WAL(const std::string& path);
     ~WAL();
 
     void append(RecordType type, const std::string& key, const std::string& value);

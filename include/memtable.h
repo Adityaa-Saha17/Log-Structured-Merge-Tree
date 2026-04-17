@@ -1,4 +1,4 @@
-#pragma Once
+#pragma once
 #include "skiplist.h"
 
 static const size_t MEMTABLE_SIZE = 4 * 1024 * 1024;
@@ -17,6 +17,9 @@ public:
     size_t byte_size() const { return byte_size_; };
     bool should_flush() const { return byte_size_ >= MEMTABLE_SIZE; };
     size_t entry_count() const { return table_.size(); };
+
+    std::vector<std::pair<std::string, std::string>> get_sorted_entries() const;
+    std::vector<bool> get_tombstones() const;
 
     void clear();
 };

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 
-WAL::WAL(std::string& path) : path_(path) {
+WAL::WAL(const std::string& path) : path_(path) {
     file_.open(path, std::ios::binary | std::ios::app);
     if(!file_.is_open()){
         throw std::runtime_error("Cannot open WAL: " + path);
@@ -70,8 +70,8 @@ std::vector<WALRecord> WAL::recover(const std::string& path){
         if(!in.read(reinterpret_cast<char *>(&vlen), 4)) break;
 
         std::string key(klen, '\0'), value(vlen, '\0');
-        if(!in.read(key.data(), static_cast<std::streamsize>(klen))) break;
-        if(!in.read(value.data(), static_cast<std::streamsize>(vlen))) break;
+        if(klen > 0 && !in.read(&key[0], static_cast<std::streamsize>(klen))) break;
+        if(vlen > 0 && !in.read(&value[0], static_cast<std::streamsize>(vlen))) break;
 
         std::string payload;
         payload.push_back(static_cast<char>(type));

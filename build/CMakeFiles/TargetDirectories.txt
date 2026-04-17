@@ -1,0 +1,3 @@
+/Users/adityaasaha/Documents/VS Code/LSMT + SQO personal/build/CMakeFiles/lsm_runner.dir
+/Users/adityaasaha/Documents/VS Code/LSMT + SQO personal/build/CMakeFiles/edit_cache.dir
+/Users/adityaasaha/Documents/VS Code/LSMT + SQO personal/build/CMakeFiles/rebuild_cache.dir

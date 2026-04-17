@@ -19,3 +19,11 @@ void Memtable::clear(){
     std::swap(table_, new_table.table_);
     std::swap(byte_size_, new_table.byte_size_);
 }
+
+std::vector<bool> Memtable::get_tombstones() const {
+    return table_.get_tombstones();
+}
+
+std::vector<std::pair<std::string, std::string>> Memtable::get_sorted_entries() const{
+    return table_.get_all();
+}

@@ -1,6 +1,5 @@
 #include "../include/skiplist.h"
 #include <cstring>
-#include <ctime>
 
 SkipList::SkipList(): current_level_(0), size_(0) {
     head_ = new SkipNode("", "", MAX_LEVEL);
@@ -106,4 +105,24 @@ std::optional<std::string>  SkipList::get(const std::string& key) const {
         return cur->value;
     }
     return std::nullopt;
+}
+
+std::vector<std::pair<std::string, std::string>> SkipList::get_all() const {
+    std::vector<std::pair<std::string, std::string>> result;
+    SkipNode* cur = head_->forward[0];
+    while(cur){
+        result.emplace_back(cur->key, cur->value);
+        cur = cur->forward[0];
+    }
+    return result;
+}
+
+std::vector<bool> SkipList::get_tombstones() const {
+    std::vector<bool> result;
+    SkipNode* cur = head_->forward[0];
+    while(cur){
+        result.push_back(cur->tombstone);
+        cur = cur->forward[0];
+    }
+    return result;
 }
