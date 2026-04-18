@@ -1,4 +1,4 @@
-README.md
+## README.md
 
 ## Build and Run Commands
 - Build: `mkdir -p build && cd build && cmake .. && make`
