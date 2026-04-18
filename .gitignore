@@ -5,4 +5,4 @@ wal.log
 .vscode
 build/
 .claude
-CLAUDE.mdbuild/
+CLAUDE.md
