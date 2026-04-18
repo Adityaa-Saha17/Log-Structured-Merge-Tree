@@ -1,6 +1,4 @@
-# README.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+README.md
 
 ## Build and Run Commands
 - Build: `mkdir -p build && cd build && cmake .. && make`
