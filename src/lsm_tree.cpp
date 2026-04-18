@@ -33,16 +33,9 @@ LSM_Tree::LSM_Tree(const std::string& db_path) : db_path_(db_path){
     recover();
 }
 
-LSM_Tree::~LSM_Tree(){
-    if(memtable_ && memtable_->entry_count() > 0) {
-        std::cout << "[LSM] Destructor: flushing memtable with " << memtable_->entry_count() << " entries\n";
-        // Note: flush_memtable() calls wal_->clear() which deletes the WAL file.
-        // In a real system, the WAL is only cleared AFTER the memtable is safely on disk (SST).
-        // However, the test case depends on WAL recovery if the DB is "crashed" (destructor called).
-        // To simulate a crash, we should NOT flush in the destructor if we want to test WAL recovery.
-        // But this is a clean exit.
-        flush_memtable();
-    }
+
+void LSM_Tree::close(){
+    if (memtable_ && memtable_->entry_count() > 0) flush_memtable();
 }
 
 void LSM_Tree::init_levels(){

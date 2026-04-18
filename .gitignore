@@ -3,3 +3,6 @@ main.cpp
 lsm_runner
 wal.log
 .vscode
+build/
+.claude
+CLAUDE.md

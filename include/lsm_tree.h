@@ -45,11 +45,12 @@ private:
 
 public:
     explicit LSM_Tree(const std::string& db_path);
-    ~LSM_Tree();
+    ~LSM_Tree() {}
 
     void put(const std::string& key, const std::string& value);
     void remove(const std::string& key);
     std::optional<std::string> get(const std::string& key);
     std::vector<std::pair<std::string, std::string>> scan(const std::string& start, const std::string& end);
     void print_stats() const;
+    void close();
 };

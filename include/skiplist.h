@@ -37,7 +37,7 @@ public:
     size_t size() const { return size_; }
 
     SkipList(SkipList&& o) noexcept
-        : head_(o.head_), current_level_(o.current_level_), size_(o.size_) {
+        : current_level_(o.current_level_), head_(o.head_), size_(o.size_) {
             o.head_ = nullptr;
             o.current_level_ = 0;
             o.size_ = 0;
